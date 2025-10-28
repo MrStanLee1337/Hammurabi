@@ -1,0 +1,18 @@
+{
+    "acre": 1000,
+    "acrePrice": 23,
+    "acreToSeed": 0,
+    "grain": 2800,
+    "grainGot": 0,
+    "grainGotPerAcre": 0,
+    "grainToEat": 0,
+    "maxRound": 10,
+    "miceEaten": 0,
+    "newcomer": 0,
+    "people": 100,
+    "plague": false,
+    "round": 1,
+    "starvation": 0,
+    "starvationPerYear": 0,
+    "starvationThisYear": 0
+}

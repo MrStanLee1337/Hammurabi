@@ -128,7 +128,7 @@ void mainMenu() {
         while (true) {
             println("Загрузить игру(1) или начать заного(0)?");
             int save = 0; std::cin >> save;
-            debug(save);
+            //debug(save);
             if (save == 0) {
                 createNewSave();
                 saveDataToJSON();
@@ -262,7 +262,7 @@ void acresToChange() {
     while (true) {//buy
         println("Введите количество акров, которое вы хотите купить.");
         int acresCountToBuy = 0; std::cin >> acresCountToBuy;
-        debug(acresCountToBuy);
+        //debug(acresCountToBuy);
         if (acresCountToBuy * acresPrice > grain) println("У вас недостаточно пшеницы.");
         else if (acresCountToBuy < 0) println("Некорректный ввод.");
         else {
@@ -335,7 +335,7 @@ void nextRoundMove() {
     // 2 
     myType miceEaten = [grain]() {
         return grain * (rnd() % 8) / 100;
-        } ();
+    } ();
     grain -= miceEaten;
 
     // 3
@@ -383,7 +383,7 @@ void nextRoundMove() {
     g_data["starvation"] = starvation;
     g_data["starvationThisYear"] = starvationThisYear;
     g_data["newcomer"] = newcomer;
-
+    g_data["acrePrice"] = []() {return rnd() % 10 + 17;}();
 }
 
 bool isStarvationGameOver() {
@@ -411,8 +411,8 @@ void Congratz() {
     myType people = g_data["people"];
     float P = g_data["starvationPerYear"];
     float L = (static_cast<float> (acres) / people);
-    if (P > 0.33 and L < 7) println("Из-за вашей некомпетентности в управлении, народ устроил бунт и вас выгнали.");
-    else if (P > 0.1 and L < 9) println("Вы правили железной рукой, подобно Ивану Грозному. Вас не желают видеть правителем.");
-    else if (P > 0.3 and L < 10) println("Вы неплохо справились. У вас остались недоброжелатели, но многи хотели бы видеть вас правителем.");
+    if (P > 0.33 && L < 7) println("Из-за вашей некомпетентности в управлении, народ устроил бунт и вас выгнали.");
+    else if (P > 0.1 && L < 9) println("Вы правили железной рукой, подобно Ивану Грозному. Вас не желают видеть правителем.");
+    else if (P > 0.3 && L < 10) println("Вы неплохо справились. У вас остались недоброжелатели, но многи хотели бы видеть вас правителем.");
     else println("Фантастика, вы превосходно справились со своими обязанностями!");
 }
